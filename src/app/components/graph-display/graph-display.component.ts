@@ -111,5 +111,6 @@ export class GraphDisplayComponent implements AfterViewInit, OnInit{
       }}
     )
   }
+  
 
 }

@@ -3,13 +3,13 @@
     <!--I've divided the main in a Left Side (For Form Input and the Table) and a Right Side (To display the chart)-->
     <!--when the page width goes below 600px, the flex direcation changes to 'Column'  -->
 
-    <div class="leftSide">
+    <div class="leftSide w-112 md:w-151">
         
         <!--------------Form To get data form the User ---------------------->
-        <form (ngSubmit)="onSubmit()" class="userForm pt-8 pl-12 flex flex-col justify-between mb-12">
+        <form (ngSubmit)="onSubmit()" class="userForm pt-8 pl-12 flex flex-col justify-between mb-12 h-90 sm:h-70">
 
             <!-- Username Input -->
-            <div class="name flex flex-col w-50">
+            <div class="name flex flex-col w-20 sm:w-50">
 
                 <label for="userNameInput" class="ml-2.5 mb-0 text-xs form-label">User's Name</label>
                 <input id="userNameInput" class="outline-none border-b-1 p-1 form-input" type="text" placeholder="Name" required [(ngModel)]="userName" name="userName">
@@ -20,7 +20,7 @@
             <div class="flex justify-between w-112">
 
                 <!-- Workout Name Input -->
-                <div class="workoutType flex flex-col w-50">
+                <div class="workoutType flex flex-col w-20 sm:w-50">
 
                     <label for="workoutTypeInput" class="ml-2.5 mb-0 text-xs form-label">Work-out Type</label>
                     <select name="workoutType" id="workoutTypeInput" class="outline-none border-b-1 p-1 form-input" [(ngModel)]="selectedValue">
@@ -31,7 +31,7 @@
                 </div>
         
                 <!-- Workout Duration Input -->
-                <div class="duration flex flex-col w-50">
+                <div class="duration flex flex-col w-31 sm:w-51">
             
                     <label for="durationInput" class="ml-2.5 mb-0 text-xs form-label">Workout Duration</label>
                     <input id="durationInput" class="outline-none border-b-1 p-1 form-input" type="number" placeholder="Duration (mins)" required [(ngModel)]="duration" name="duration">
@@ -60,7 +60,7 @@
         
     </div>
 
-    <div class="w-125 ml-25">
+    <div class="ml-10 w-100    sm:ml-25 w-125">
         <app-graph-display [data]="usersList"/>
     </div>
 </main>
