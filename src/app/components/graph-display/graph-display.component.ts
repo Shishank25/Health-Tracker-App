@@ -11,27 +11,41 @@ import { ServiceFuncsService } from '../../services/service-funcs.service';
 })
 export class GraphDisplayComponent implements AfterViewInit, OnInit{
 
+
+//----To access the Service Functions-----
   constructor(private cd: ChangeDetectorRef,  private workoutService: ServiceFuncsService) { }
 
+
+//----To store the User List passed from the "Home" Component----
   @Input() data: any[] = [];
 
+
+//----To obtain the canvas HTML Element with the id #barCanvas----
   @ViewChild('barCanvas') barCanvas: ElementRef | undefined; 
 
+
+//----Arrays to store Filtered User Data and Chart Plotting Data----
   newUsers: {name: string, mins: number}[] = [];
   values: number[] = [];
   names: string[] = [];
 
+//----Variable to read name of user in the chart----
   selectedName: string = '';
 
+//----Variable to store Chart object----
   barChart: any;
 
 
+
+//----Render the chart after everything is set----
   ngAfterViewInit(): void {
     
     this.barChartMethod();
 
   }
 
+
+//----Initialize Arrays-----
   ngOnInit(): void {
 
     if (this.data.length > 0) {
@@ -49,10 +63,12 @@ export class GraphDisplayComponent implements AfterViewInit, OnInit{
     
   }
 
+//----Function to communicate with Service----
   getWorkoutSum(workouts: any[]): number {
       return this.workoutService.calculateWorkoutSum( workouts )
   }
 
+//----Function to Search <input> value and filter arrays----
   spliceSearch(name: string){
 
     if (name.trim() === '') {
@@ -75,6 +91,8 @@ export class GraphDisplayComponent implements AfterViewInit, OnInit{
     this.cd.detectChanges();
   }
 
+
+//----Function to Render Bar Chart-----
   barChartMethod(): void{
 
     if(this.barChart) { this.barChart.destroy() }

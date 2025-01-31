@@ -11,8 +11,12 @@ import { ServiceFuncsService } from '../../services/service-funcs.service';
 })
 export class DisplayTableComponent {
   
+
+//----To access the Service Functions-----  
   constructor(private workoutService: ServiceFuncsService){}
 
+
+//----To store the data from the parent-----
   @Input() usersList: any[]= [];
   @Input() currentPage: number = 0;
   @Input() pageSize: number = 5;
@@ -21,20 +25,23 @@ export class DisplayTableComponent {
 
   SEARCH_LIST_KEY: string = 'customSearchList';
 
+//----Arrays to store parsed or filtered data----
   searchList: any[] = [];
   paginatedData: any[] = [];
   filteredData: any[] = [];
 
-  
+//----Variables to store Searching Terms from <Input> and <Select> tags----
   searchTerm: string = '';
   searchWorkoutType: string = '';
 
 
-
+//----Filter Data on change detection----
   ngOnChanges(){
     this.searchData();
   }
 
+
+//----Access Local Storage data on Initialization----
   ngOnInit(){
 
       const storedSearchList = localStorage.getItem(this.SEARCH_LIST_KEY);
