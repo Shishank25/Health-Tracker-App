@@ -1,0 +1,46 @@
+*{
+    background-color: #131010;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    main {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        .rightSide{
+            margin-left: 0px;
+            width: 100%;
+        }
+    }
+} 
+
+form{
+    width: 600px;
+    height: 270px;
+    justify-content: space-between;
+
+    .form-label{
+        color: gray;
+    }
+
+    .form-input{
+        width: 200px;
+        border-color: rgba(255, 255, 255, 0.277);
+    }
+
+    button{
+        font-weight: 500;
+        padding: 5px;
+        color: black;
+        background-color: #F96E2A;
+        margin-left: 150px;
+        width: 150px;
+        border: 1px solid rgba(255, 255, 255, 0.277);
+        border-radius: 20px;
+    }
+
+}
+

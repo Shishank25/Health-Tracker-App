@@ -1,0 +1,58 @@
+*{
+    background-color: #131010;
+    color: white;
+}
+
+
+table{
+    height: 277px;
+
+    th{
+        text-align: center;
+    }
+
+    td{
+        max-height: 50px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.277);
+    }
+
+    .long-cell{
+        width: 170px;
+    }
+
+    .numberField{
+        width: 115px;
+        text-align: center;
+    }
+}
+
+.pagination-controls{
+
+    .page-button{
+        border-radius: 20px;
+
+        &:disabled{
+            color: gray;
+        }
+    }
+}
+
+.table-search{
+
+    select{
+        background-color: inherit;
+    }
+
+    .search-item{
+        color: aliceblue;
+        background-color: inherit;
+        max-width: 200px;
+        border-color: rgba(255, 255, 255, 0.277);
+    }
+}
+
+@media (max-width: 600px){
+    .table-search{
+        margin-left: 50px;
+    }
+}

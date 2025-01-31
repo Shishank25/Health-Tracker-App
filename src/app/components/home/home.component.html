@@ -1,0 +1,52 @@
+<main class="flex h-180">
+
+    <div class="leftSide">
+                
+        <form (ngSubmit)="onSubmit()" class="userForm pt-8 pl-12 flex flex-col justify-between mb-12">
+
+            <div class="name flex flex-col w-50">
+
+                <label for="userNameInput" class="ml-2.5 mb-0 text-xs form-label">User's Name</label>
+                <input id="userNameInput" class="outline-none border-b-1 p-1 form-input" type="text" placeholder="Name" required [(ngModel)]="userName" name="userName">
+
+            </div>
+
+            <div class="flex justify-between w-112">
+                <div class="workoutType flex flex-col w-50">
+
+                    <label for="workoutTypeInput" class="ml-2.5 mb-0 text-xs form-label">Work-out Type</label>
+                    <select name="workoutType" id="workoutTypeInput" class="outline-none border-b-1 p-1 form-input" [(ngModel)]="selectedValue">
+
+                        <option *ngFor="let op of workoutList" [value]="op">{{op}}</option>
+
+                    </select>
+            
+                </div>
+            
+                <div class="duration flex flex-col w-50">
+            
+                    <label for="durationInput" class="ml-2.5 mb-0 text-xs form-label">Workout Duration</label>
+                    <input id="durationInput" class="outline-none border-b-1 p-1 form-input" type="number" placeholder="Duration (mins)" required [(ngModel)]="duration" name="duration">
+            
+                </div>
+            </div>
+            <div *ngIf="selectedValue == 'Other'" class="flex flex-col w-50">
+                <label for="otherInput" class="ml-2.5 mb-0 text-xs form-label">Describe your workout</label>
+                <input id="otherInput" type="text" class="outline-none border-b-1 p-1 form-input" placeholder="" [(ngModel)]="newType" name="workoutType">
+            </div>
+
+            <button type="submit" class="">Add Workout</button>
+        </form>
+
+        <app-display-table 
+        [usersList]="usersList"
+        [currentPage]="currentPage"
+        [pageSize]="pageSize"
+        [totalPages]="totalPages"/>
+        
+    </div>
+
+    <div class="w-125 ml-25">
+        <app-graph-display [data]="usersList"/>
+    </div>
+</main>

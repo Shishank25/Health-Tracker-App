@@ -1,0 +1,47 @@
+<div>
+    <div class="table-search ml-50 mb-5 flex justify-between w-101">
+
+        <input type="text" [(ngModel)]="searchTerm" (input)="searchData()" placeholder="Search" class="search-item border-b p-1 outline-none">
+
+        <select name="workout-search" id="table-search-workout" class="search-item border-b p-1 outline-none" [(ngModel)]="searchWorkoutType">
+            <option *ngFor="let e of searchList">{{e}}</option>
+
+        </select>
+    </div>
+
+    <table class="ml-12 font-light">
+        <thead>
+            <tr>
+                <th class="font-medium">User ID</th>
+                <th class="font-medium">Name</th>
+                <th class="font-medium">Workouts</th>
+                <th class="font-medium">Total workouts</th>
+                <th class="font-medium">Total Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of paginatedData; let i = index">
+                <ng-container *ngIf="workoutSearch(item.workouts,searchWorkoutType) || searchWorkoutType == 'All'">
+                    <td class="numberField p-2">{{i+1}}</td>
+                    <td class="long-cell p-2">{{item.name}}</td>
+                    <td class="long-cell p-2">
+                        {{stringOfItems(item.workouts)}}
+                    </td>
+                    <td class="numberField p-2">
+                        {{item.workouts.length}}
+                    </td>
+                    <td class="numberField p-2">
+                        {{getWorkoutSum(item.workouts)}}
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="pagination-controls flex mt-7 ml-50 w-50 justify-between">
+        <button (click)="prevPage()" [disabled]="currentPage === 0" class="page-button outline-none border-none">Prev</button>
+        <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1" class="page-button outline-none border-none">Next</button>
+    </div>
+</div>
