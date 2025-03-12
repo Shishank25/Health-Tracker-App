@@ -6,6 +6,11 @@ input{
     outline: none;
     color: antiquewhite;
     background-color: inherit;
-    border: 0px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.277);
+}
+
+@media (max-width: 624px) {
+    input, #barCanvas{
+        margin-left: 30px;
+    }
 }

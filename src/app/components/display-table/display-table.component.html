@@ -16,35 +16,35 @@
 
 
     <!----------------------- Table Element -------------------------------->
-    <table class="ml-12 font-light">
+    <table class="ml-4 sm:ml-12 font-light h-70 border-collapse">
 
         <thead>
             <!-------- Row of Headers ------->
-            <tr>
-                <th class="font-medium">User ID</th>
-                <th class="font-medium">Name</th>
-                <th class="font-medium">Workouts</th>
-                <th class="font-medium">Total workouts</th>
-                <th class="font-medium">Total Duration</th>
+            <tr class="p-1 border-b-1 border-white">
+                <th class="font-medium border-b-1 border-white">User ID</th>
+                <th class="font-medium border-b-1 border-white">Name</th>
+                <th class="font-medium text-center border-b-1 border-white">Workouts</th>
+                <th class="font-medium border-b-1 border-white">Total workouts</th>
+                <th class="font-medium border-b-1 border-white">Total Duration</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr *ngFor="let item of paginatedData; let i = index">
+            <tr *ngFor="let item of paginatedData; let i = index" class="border-b-white border-b">
                 
                 <!------This container assists in filtering paginated data ------>
                 <ng-container *ngIf="workoutSearch(item.workouts,searchWorkoutType) || searchWorkoutType == 'All'">
 
-                            <td class="numberField p-2">    {{i+1}} </td>
-                            <td class="long-cell p-2">  {{item.name}}   </td>
+                            <td class="numberField p-2 border-b border-white p-1">    {{i+1}} </td>
+                            <td class="long-cell p-2 border-b border-white">  {{item.name}}   </td>
 
-                            <td class="long-cell p-2">  {{stringOfItems(item.workouts)}}
+                            <td class="long-cell p-2 border-b border-white">  {{stringOfItems(item.workouts)}}
                             </td>
 
-                            <td class="numberField p-2">    {{item.workouts.length}}
+                            <td class="numberField p-2 border-b border-white">    {{item.workouts.length}}
                             </td>
                             
-                            <td class="numberField p-2">    {{getWorkoutSum(item.workouts)}}
+                            <td class="numberField p-2 border-b border-white">    {{getWorkoutSum(item.workouts)}}
                             </td>
 
                 </ng-container>
@@ -57,7 +57,7 @@
 
 
     <!-------------------Pagination Control Panel-------------->
-    <div class="pagination-controls flex mt-7 ml-50 w-50 justify-between">
+    <div class="pagination-controls flex mt-3 sm:mt-7 ml-30 sm:ml-50 w-50 justify-between">
 
         <button (click)="prevPage()" [disabled]="currentPage === 0" class="page-button outline-none border-none">Prev</button>
 
