@@ -9,6 +9,10 @@ input{
     border-bottom: 1px solid rgba(255, 255, 255, 0.277);
 }
 
+#barCanvas{
+    height: 400px;
+}
+
 @media (max-width: 624px) {
     input, #barCanvas{
         margin-left: 30px;
